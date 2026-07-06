@@ -109,6 +109,36 @@ const api = {
       return { data: getStorageItem('shop_vendors', []) } as any;
     }
 
+    if (path === '/sales/next-bill-no') {
+      checkAuth();
+      const sales = getStorageItem('shop_sales', []);
+      let maxNum = 0;
+      sales.forEach((sale: any) => {
+        const match = sale.bill_no.match(/SALE-(\d+)/i);
+        if (match) {
+          const num = parseInt(match[1], 10);
+          if (num > maxNum) maxNum = num;
+        }
+      });
+      const nextNum = maxNum + 1;
+      return { data: { nextBillNo: `SALE-${String(nextNum).padStart(5, '0')}` } } as any;
+    }
+
+    if (path === '/purchases/next-bill-no') {
+      checkAuth();
+      const purchases = getStorageItem('shop_purchases', []);
+      let maxNum = 0;
+      purchases.forEach((pur: any) => {
+        const match = pur.bill_no.match(/PUR-(\d+)/i);
+        if (match) {
+          const num = parseInt(match[1], 10);
+          if (num > maxNum) maxNum = num;
+        }
+      });
+      const nextNum = maxNum + 1;
+      return { data: { nextBillNo: `PUR-${String(nextNum).padStart(5, '0')}` } } as any;
+    }
+
     if (path === '/sales') {
       checkAuth();
       const sales = getStorageItem('shop_sales', []);
