@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: shop-erp-backend
+    env: node
+    buildCommand: npm install
+    startCommand: node server.js
+    rootDir: backend
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_PATH
+        value: /data/shop-erp.db
+    disk:
+      name: database-disk
+      mountPath: /data
+      sizeGB: 1
