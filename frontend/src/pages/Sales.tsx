@@ -379,10 +379,10 @@ const Sales: React.FC = () => {
         </section>
       )}
 
-      {/* 2. Grid split: Form (Left) & Recent Activity (Right) */}
-      <div className="grid grid-cols-1 xl:grid-cols-3 gap-6 items-start">
+      {/* 2. Stacked Layout: Form (Top) & Recent Activity (Bottom) */}
+      <div className="space-y-6">
         {/* Entry Form */}
-        <section className="bg-white dark:bg-[#0c0c0f] border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-sm xl:col-span-1">
+        <section className="bg-white dark:bg-[#0c0c0f] border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-sm">
           <h3 className="text-md font-bold text-zinc-900 dark:text-zinc-50 border-b border-zinc-100 dark:border-zinc-800 pb-3 mb-5 flex items-center gap-2">
             <FileText className="w-5 h-5 text-indigo-600" />
             New Sales Entry
@@ -569,7 +569,7 @@ const Sales: React.FC = () => {
         </section>
 
         {/* History Table */}
-        <section className="bg-white dark:bg-[#0c0c0f] border border-zinc-200 dark:border-zinc-800 rounded-2xl shadow-sm xl:col-span-2 overflow-hidden flex flex-col h-[700px]">
+        <section className="bg-white dark:bg-[#0c0c0f] border border-zinc-200 dark:border-zinc-800 rounded-2xl shadow-sm overflow-hidden flex flex-col h-[700px]">
           {/* List Toolbar */}
           <div className="p-5 border-b border-zinc-100 dark:border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-3 shrink-0 bg-zinc-50/50 dark:bg-zinc-900/10">
             <h3 className="text-sm font-bold text-zinc-900 dark:text-zinc-50 self-start sm:self-center">
